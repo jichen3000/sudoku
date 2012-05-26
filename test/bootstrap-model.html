@@ -1,0 +1,57 @@
+<!COCTYPE html>
+<html>
+  <head>
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
+    <link href="../public/css/main.css" rel="stylesheet">
+  </head>
+  
+  <body>
+  
+    <button class="btn" id="open-dialog">open dialog</button>
+    <div id="choose-value-dialog" class="modal hide">
+      <div class="modal-body">
+      <div class="row group border" id="group_dialog">
+        <div class="cell border" id="cell_00">1</div>
+        <div class="cell border" id="cell_10">2</div>
+        <div class="cell border" id="cell_20">3</div>
+        <div class="cell border" id="cell_01">4</div>
+        <div class="cell border" id="cell_11">5</div>
+        <div class="cell border" id="cell_21">6</div>
+        <div class="cell border" id="cell_02">7</div>
+        <div class="cell border" id="cell_12">8</div>
+        <div class="cell border" id="cell_22">9</div>
+      </div>
+      </div>
+      <div id="choose-buttons" class="modal-footer">
+        <button id='close' data-dismiss="modal" class="btn" href="#">close</button>
+      </div>
+    </div>
+    <a class="btn" data-toggle="modal" href="#myModal" data-backdrop="false">Launch Modal</a>
+    <div class="modal hide" id="myModal">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">*</button>
+        <h3>Modal header</h3>
+      </div>
+      <div class="modal-body">
+        <p>One fine body</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#"  data-dismiss="modal" class="btn">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+  <script type="text/javascript" src="../public/js/bootstrap-modal.js"></script>
+  <script type="text/javascript">
+  $(function (){
+    $('#open-dialog').click(function (e){
+      $('#choose-value-dialog').modal({keyboard: true});
+      var position = { top: e.pageY+5, left: e.pageX+5 }
+      $('#choose-value-dialog').offset(position);
+      $('#choose-value-dialog').offset(position);
+    });
+  });
+  
+  </script>
+</html>

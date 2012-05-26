@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title Sudoku
+  %body
+  :javascript
+    $(document).ready(function() {
+      alert("jc");
+    });
+  
+/
+  #main
+    .note
+%h2 I can help you to answer out ANY Sudoku puzzle.
+%h2= "Hello #{locals[:hello]}"
+-# I'm the real comment .box {:id => "item_#{x}"}
+%p
+  = %w[this is join].join(" ")
+!= haml :"_other"	  
+
+
+  
+#dialog{:title=>"demo",:class=>"ui-dialog-content ui-widget-content", 
+  :style=>"width: auto; min-height: 54px; height: auto; ",
+  :scrolltop=>"0", :scrollleft=>"0"}
+  %p test  

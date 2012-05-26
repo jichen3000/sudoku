@@ -1,0 +1,64 @@
+!!! 5
+%html
+  %head
+    %title Sudoku
+    %link{:href=>"css/bootstrap.css",:rel=>"stylesheet"}
+    %link{:href=>"css/main.css",:rel=>"stylesheet"}
+    -#TODO 5. add time prompt when computering 
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{:href=>"/sudoku"} Colin
+    .container
+      %header
+        %h1 
+          Answer Soduku 
+          %p.lead Answer your any Soduku puzzle             
+      %section#main
+        #page-herder
+          %h3 
+            Cells 
+            %small please input your puzzle
+            %small.values-count.atv
+        .row.span5
+          #sudoku-99.border.row
+            - locals[:sudoku_size].times do |group_index|
+              .row.group.border{:id=>"group_#{group_index}"} 
+                - locals[:sudoku_size].times do |inner_index|
+                  .cell.border{:id=>"#{helper(group_index, inner_index).join("_")}"}
+        #operate.row.span3
+          .alert.alert-success
+            %p#messages 
+              Try it now. You just need to input the puzzle in the cells, then click the Computer button.
+          .button-box.well-small
+            To answer out the puzzle in the cells which has 
+            %span.atv at least 17 values.
+            .button
+              %button.btn#compute Computer
+          .button-box.well-small
+            To clear the cells.
+            .button
+              %button.btn#clear Clear
+          .button-box.well-small
+            To generate an example puzzle in the cells.
+            .button
+              %button.btn#example1 Example
+          -#%input#record{:type=>'button',:value=>'record'}
+      %section#other
+        #process-dialog.modal.hide
+          .modal-body
+            .alert.alert-success
+              %span I am answering your quiz...
+        #choose-value-dialog.modal.hide
+          .modal-body
+            .row.group.border{:id=>"group_dialog"} 
+              - locals[:sudoku_size].times do |inner_index|
+                .cell.border{:id=>"cell_#{helper(0, inner_index).join("")}"}= inner_index+1 
+          #choose-buttons.modal-footer
+            %button.btn#null null
+            %button.btn{'data-dismiss'=>'modal',:href=>'#'} close
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+    %script{:type=>"text/javascript", :src=>"js/bootstrap-modal.js"}
+    %script{:type=>"text/javascript", :src=>"js/main.js"}
+                
