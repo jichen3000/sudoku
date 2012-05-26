@@ -4,7 +4,7 @@ require 'json'
 
 require File.join(File.dirname(__FILE__),'sudoku')
 
-get "/sudoku" do
+get "/" do
   haml :main, :locals => {:sudoku_size => 9}
 end
 get "/index" do
