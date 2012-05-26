@@ -1,5 +1,5 @@
 #Gemfile
-source :rubygems
+source: rubygems
 gem "sinatra"
 gem "haml"
 gem "json"
